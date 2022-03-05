@@ -1,9 +1,7 @@
-const a = 100;
-const b = 20;
+const isboolean = true;
+const notIsboolean = false;
 
-const myName = "Yunseop";
+console.log(isboolean);
+console.log(notIsboolean);
 
-console.log(a + b);
-console.log(a * b);
-console.log(a / b);
-console.log(myName + b);
+
