@@ -1,10 +1,22 @@
-const player = {
-    name: "nico",
-    sayHello: function(otherPersonsName) {
-        console.log("Hello" + otherPersonsName + "nice to meet you");
-    }
+const calculater = {
+  add: function(a, b){
+    console.log(a+b);
+  },
+
+  subtract: function(a, b){
+    console.log(a-b)
+  },
+
+  division: function(a, b){
+    console.log(a/b);
+  },
+
+  multiply: function(a * b){
+    console.log(a*b);
+  }
 };
 
-console.log(player.name);
-player.sayHello("lynn");
-player.sayHello("yunseop");
+calculater.add(100, 20);
+calculater.subtract(100, 20);
+calculater.division(100, 20);
+calculater.multiply(100, 20);
