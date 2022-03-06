@@ -1,8 +1,10 @@
-function sayHello(mama) {
-    console.log("Hello my name is " + mama);
+function plus(firstNumber, secondNumber){
+    console.log(firstNumber + secondNumber);
 }
 
-sayHello("yunseop");
-sayHello();
-sayHello();
-sayHello();
+function divide(a, b) {
+    console.log(a/b);
+}
+
+plus(3, 2);
+divide(30, 2);
