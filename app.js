@@ -11,12 +11,17 @@ const calculater = {
     console.log(a/b);
   },
 
-  multiply: function(a * b){
-    console.log(a*b);
+  multiply: function(a, b){
+    console.log(a * b);
+  },
+
+  squared: function(a, b){
+    console.log(a ** b);
   }
 };
 
-calculater.add(100, 20);
-calculater.subtract(100, 20);
-calculater.division(100, 20);
-calculater.multiply(100, 20);
+calculater.add(10, 20);
+calculater.subtract(10, 20);
+calculater.division(10, 20);
+calculater.multiply(10, 20);
+calculater.squared(10, 20);
