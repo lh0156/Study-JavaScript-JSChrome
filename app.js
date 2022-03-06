@@ -1,11 +1,9 @@
-const isboolean = true;
-const notIsboolean = false;
-const isnull = null;
-let isUnDefine;
+// Get Item from Array
+const dayOfWeek = ["mon", "tue", "wed", "thu", "fri", "sau"];
+console.log(dayOfWeek);
+// Add one more day to the array
 
+dayOfWeek.push("sun")
+console.log(dayOfWeek);
 
-console.log(isboolean);
-console.log(notIsboolean);
-console.log(isnull);
-console.log(isUnDefine);
-
+console.log(dayOfWeek[dayOfWeek.length-1]);
