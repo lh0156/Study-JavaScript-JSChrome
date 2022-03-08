@@ -20,8 +20,13 @@ const calculater = {
   }
 };
 
-console.log(calculater.add(10, 20));
-console.log(calculater.subtract(10, 20));
-console.log(calculater.division(10, 20));
-console.log(calculater.multiply(10, 20));
-console.log(calculater.squared(10, 20));
+const human = {
+  name: "yunseop",
+  age: "25"
+};
+
+console.log(human.age);
+
+human["age"] = 22;
+
+console.log(human.age);
