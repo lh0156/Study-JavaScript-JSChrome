@@ -1,3 +1,8 @@
-const age = prompt("How old are you");
+const age = parseInt(prompt("How old are you"));
 
-console.log(typeof "15", typeof parseInt("15"));
+
+if(isNaN(age)){
+  console.log("문자입니다.");
+} else {
+  console.log("숫자입니다.");
+}
