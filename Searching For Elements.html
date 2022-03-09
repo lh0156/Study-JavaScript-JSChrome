@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 class="hello">Hello</h1>
+    <h1 class="hello">Hello</h1>
+    <h1 class="hello">Hello</h1>
+    <h1 class="hello">Hello</h1>
+    <h1 class="hello">Hello</h1>
+    <h1 class="hello">Hello</h1>
+    <h1 class="hello">Hello</h1>
+
+    <div class="twoHello">
+        <h1>Grap ㅁㅁme</h1>
+    </div>
+    <div class="twoHello">
+        <h1>Grap me</h1>
+    </div>
+    <div class="twoHello">
+        <h1>Grap mㅁㅁe</h1>
+    </div>
+
+    <script>
+        //해당 Class의 이름을 가진 elements를 Array의 형태로 가져온다.
+        const hellos = document.getElementsByClassName("hello");
+        console.log(hellos);
+
+        //해당 태그 속성을 가진 elements를 Array의 혀앹로 가져온다.
+        const title = document.getElementsByTagName("h1");
+        console.log(title);
+
+        //**** 선생님이 생각하는 가장 멋진 element를 찾는법 = querySelector
+        const grap = document.querySelector(".twoHello h1");
+        console.log(grap);
+
+        grap.innerText = "변환!";
+
+        //querySelector의 return값은 반드시 1개이며 복수의 동일한 element가 있을 경우 반드시 하나만을 return한다.
+        
+        //그럼 여러개의 요소를 반환하는 방법은?
+
+        const graps = document.querySelectorAll(".twoHello h1");
+        console.log(graps);
+        
+        //쿼리 셀렉터는 다음과같이 사용할수도 있다.
+
+        grap = document.querySelector("twoHello h1:first-child");
+
+        //그리고 querySelector("#Hello") 와 getElementById("hello")는 같다!
+
+    </script>
+</body>
+</html>
