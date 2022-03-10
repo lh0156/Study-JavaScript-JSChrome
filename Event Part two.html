@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Part Two</title>
+</head>
+<body>
+    
+    <h1 id="title">Grap me!</h1>
+
+    <script>
+
+        //구글에 검색하는 법
+
+        //h1 document element mdn 등의 검색어!
+
+        const title = document.getElementById("title");
+
+        console.dir(title);
+        
+        function handleTitleClcik() {
+            title.style.color = "blue";
+        }
+
+        function handleMouseenter() {
+            title.innerText = "mouse is here";
+        }
+
+        function handleMouseLeave() {
+            title.innerText = "Mouse is gone!";
+        }
+
+        title.addEventListener("click", handleTitleClcik);
+        title.addEventListener("mouseenter", handleMouseenter);
+        title.addEventListener("onmouse", handleMouseLeave);
+
+
+
+    </script>
+
+</body>
+</html>
