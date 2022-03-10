@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1 id="title">Grap me!</h1>
+
+    <script>
+        const title = document.getElementById("title");
+        console.log(title);
+        
+        //dir = 내부의 속성 등 여러가지를 아주 자세하게 볼 수 있다
+        console.dir(title);
+
+        title.innerText = "Got you!";
+
+        console.log(title.innerText);
+
+        title.style.color = "blue";
+
+        function handleTitleClick(){
+            console.log("title was clicked");
+        }
+
+
+        //타이틀 리스너가 클릭이 발생하면 handleTitleClick이라는 
+        title.addEventListener("click", handleTitleClick);
+        
+        
+
+
+
+
+    </script>
+
+</body>
+</html>
