@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS in JavaScript</title>
+</head>
+<body>
+    
+    <h2>This is Mouse Event Pratice</h2>
+
+    <script>
+        const h1 = document.querySelector("h2");
+        let titleColor = 0;
+        function handleTitleClick() {
+            h1.innerText = "Mouse is here!";
+            
+            if(titleColor === 0){
+                document.body.style.backgroundColor = "blue";
+                titleColor++;
+            } else {
+                document.body.style.backgroundColor = "tomato";
+                titleColor = 0;
+            }
+            
+        }
+
+        h1.addEventListener("click", handleTitleClick);
+
+
+    </script>
+
+
+</body>
+</html>
