@@ -8,5 +8,48 @@
 </head>
 <body>
     
+    <h2>This is Mouse Event Pratice</h2>
+
+    <script>
+        const h1 = document.querySelector("h2");
+
+        function handleTitleClick() {
+            h1.innerText = "Click Event Open";
+            h1.style.color = "blue";
+        };
+
+        function handleMouseEnter() {
+            h1.innerText = "Mouse Enter Pratice";
+            h1.style.color = "black";
+        };
+        function heandleWindowResize() {
+            document.body.style.backgroundColor = "tomato";
+        }
+
+        function handleWindowCopy() {
+            alert("Please Don't be a Copy!");
+        }
+
+        function handleWindowOffline() {
+            alert("SoS no WIFI");
+        }
+
+        function handleWindowonline(){
+            alert("add WiFi! Good Pratice!");
+        }
+
+        h1.onclick = handleTitleClick;
+        h1.onmouseenter = handleMouseEnter;
+
+        window.addEventListener("resize", heandleWindowResize);
+        window.addEventListener("copy", handleWindowCopy);
+
+        //와이파이 연결 여부도 가능! 진짜 Nice한데?!
+        window.addEventListener("offline", handleWindowOffline);
+        window.addEventListener("online", handleWindowonline);
+
+    </script>
+
+
 </body>
 </html>
