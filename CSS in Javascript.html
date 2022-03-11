@@ -12,19 +12,18 @@
 
     <script>
         const h1 = document.querySelector("h2");
-        let titleColor = 0;
+
         function handleTitleClick() {
-            h1.innerText = "Mouse is here!";
-            
-            if(titleColor === 0){
-                document.body.style.backgroundColor = "blue";
-                titleColor++;
+            const currentColor = h1.style.color;
+            let newColor;
+            if(currentColor === "blue"){
+                newColor = "tomato";
             } else {
-                document.body.style.backgroundColor = "tomato";
-                titleColor = 0;
+                newColor = "blue";
             }
+            h1.style.color = newColor;
             
-        }
+        };
 
         h1.addEventListener("click", handleTitleClick);
 
