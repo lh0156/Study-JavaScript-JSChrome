@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vanilla Challenge</title>
+    <meta charset="UTF-8" />
+    <style>
+        .short {
+            background-color: cornflowerblue;
+        }
+
+        .middle {
+            background-color: purple;
+        }
+
+        .long {
+            background-color: orange;
+        }
+    </style>
+  </head>
+
+  <body>
+    <h1>Hello!</h1>
+    <script>
+        const body = document.querySelector("body");
+
+        function resizeEvent() {
+        if (window.innerWidth < 600) {
+            body.style.backgroundColor = "cornflowerblue";
+        } else if (window.innerWidth >= 600 && window.innerWidth < 1200) {
+            body.style.backgroundColor = "purple";
+        } else {
+            body.style.backgroundColor = "orange";
+        }
+        }
+        
+        window.addEventListener("resize", resizeEvent);
+
+    </script>
+  </body>
+</html>
