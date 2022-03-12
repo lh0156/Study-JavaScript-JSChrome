@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS in JavaScript Part Two</title>
+    <style>
+        body {
+            background-color: beige;
+        }
+
+        h1 {
+            color: cornflowerblue;
+            transition: color .5s ease-in-out;
+        }
+
+        .clicked {
+            color : tomato;
+        }
+
+        .sexy-font {
+            font-family: 'Courier New', Courier, monospace ;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1 class="sexy-font">This is Mouse Event Pratice</h1>
+
+    <script>
+        const h1 = document.querySelector("h1");
+        const clickedClass = "clicked sexy-font";
+        //JavaScript에는 CSS를 적용하지는 않을 예정
+        //JavaScript가 CSS에 접근한게 아니라 HTML에 접근한것이고, CSS가 HTML을 바라보는 형식으로 작동한다!
+        function handleTitleClick() {
+
+            if(h1.className === clickedClass){
+                h1.className = "";
+            } else {
+                h1.className = clickedClass;
+            }
+
+        };
+
+        h1.addEventListener("click", handleTitleClick);
+
+
+    </script>
+
+
+</body>
+</html>
