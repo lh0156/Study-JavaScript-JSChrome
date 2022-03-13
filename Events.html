@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <form id="login-form">
+        <input required maxlength="15" type="text" placeholder="What is your name?">
+
+        <button>Log in</button>
+    </form>
+    
+
+    <script>
+        const loginForm = document.querySelector("#login-form");
+        const loginInput = document.querySelector("#login-form input");
+
+        function onLoginSubmit(event){
+            //어떤 Event의 기본 행동(새로고침처럼)이든 발생하지 않도록 하는 것
+            event.preventDefault();
+            const username = loginInput.value;
+
+            //이 Function에 대한 argumentTest값을 알 수 있다.
+
+
+            //지금 내가 하고 있는 건 onLoginSubmit이라는 Function을 만들고, 하나의 argument(event)를 받도록 한다.
+            //*** 그럼 JS는 이 함수의 첫번째 argument를 가지고 발생한 일에 대한 정보를 우리한테 알려준다.
+            //즉 EventListener function의 첫번째 argument는 항상 지금 막 벌어진 일들에 대한 정보이다.
+            console.log(argumentTest);
+        }
+
+        //onLoginSubmit()라고 쓰는건 즉시 실행한다는 뜻인데 onLoginSubmit라고만 쓰면 JS가 이것을 실행한다.
+        //정리: ()가 있으면 브라우저가 실행한다. 없으면 JS가 실행한다.
+
+        loginForm.addEventListener("submit", onLoginSubmit);
+
+        //브라우저가 정확히는 onLoginSubmit를 하고있는게 아니라, 우선 onLoginSubmit function을 호출하고,
+
+
+
+    
+    </script>
+</body>
+</html>
