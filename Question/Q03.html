@@ -6,21 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <h1>Random Number Game</h1>
 
     <form>
-        <span>Generate a number between 0 and </span><input required maxlength="15" type="text" id="randomNumber">
-        <button>Input</button>
+        <span style="font-weight: bold; font-size: 20px;">Generate a number between 0 and </span>
+        <input requred type="text" id="randomNumber">
+        <br>
+        <span>Guess the number:</span>
+        <input requred type="text" id="guessNumber">
+        <button>Play!</button>
+        
+        <a class="hidden""></a>
     </form>
 
     <script>
-        const randomNumber = document.querySelector("#randomNumber");
+        const inputBoxNumber = document.querySelector("#randomNumber");
+        const inputButton = document.querySelector("button");
+        const guessNumber = document.querySelector("#guessNumber");
+        const label = document.querySelector("a");
 
-        console.log(randomNumber.innerHTML);
+
+        function handleClickEvent(event) {
+            event.preventDefault();
+            let number = inputBoxNumber.value;
+            let randomNumber = Math.floor(Math.random() * number);
+
+            let staticNumber = guessNumber.value;
+
+            let ment = "\nYou chose : " + staticNumber + ",the machine chose: " + randomNumber + ".";
+
+            if(staticNumber >= 0 && randomNumber >= 0){
+                if(staticNumber > randomNumber) {
+                ment = ment + "\nYou Win!";
+                } else {
+                    ment = ment + "\nYou lost!";
+                }
+
+                label.innerText = ment;
+                label.classList.remove("hidden");
+            } else {
+                alert("please input Plus Number");
+            }
+            
+
+        }
+
+        inputButton.addEventListener("click", handleClickEvent);
+
     </script>
 </body>
 </html>

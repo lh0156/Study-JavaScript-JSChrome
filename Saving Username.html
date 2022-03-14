@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Getting Username</title>
+    <title>Saving Username</title>
     <style>
         .hidden {
             display: none;
@@ -31,7 +31,8 @@
             event.preventDefault();
             loginForm.classList.add(HIDDEN_CLASSNAME);
             const username = loginInput.value;
-            
+            //*****
+            //localStroage.getItem, removeItem
             localStorage.setItem("username", username);
 
             greeting.innerText = `Hello ${username}`;
