@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timeouts and dates</title>
+    <title>PadStart</title>
     <style>
         .hidden {
             display: none;
@@ -56,20 +56,30 @@
 
         const clock = document.querySelector("h2#clock");
 
+        //
+
         function getClock() {
-            const date = new Date();
-            let time = `0${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
-            clock.innerText = time;
+
+            //우리가 개발을 하면서 겪는 문제들은 거의 대부분의 개발자들이 겪는 문제이므로 이미 해결법이 나와있을 가능성이 크다.
+            //시간값을 nn의 형태로 나타내기 위해서 padStart를 사용하자!
+
+            //string.padStart(원하는 갯수, "채울값");
             
-            // console.log(`날짜: ${date.getDate()}`);
-            // console.log(`요일: ${date.getDay()}`);
-            // console.log(`년도: ${date.getFullYear()}`);
-            // console.log(`시간: ${date.getHours()}`);
-            // console.log(`분: ${date.getMinutes()}`);
-            // console.log(`초: ${date.getSeconds()}`);
+            //ex
+            //"1".padStart(2, "0") = "01"
+            //"32".padStart(5, "x") = "xxx32"
+
+            const date = new Date();
+            
+            const hours = String(date.getHours()).padStart(2, "0");
+            const minutes = String(date.getMinutes()).padStart(2, "0");
+            const seconds = String(date.getSeconds()).padStart(2, "0");
+
+            clock.innerText = `${hours}:${minutes}:${seconds}`
+
+
         }
 
-        //최초 getClock()을 선언 시 시작부터 이 값이 선언된채로 시작하기 때문에 마치 디폴트처럼 보일 수 있다.
         getClock();
         setInterval(getClock, 1000);
     
