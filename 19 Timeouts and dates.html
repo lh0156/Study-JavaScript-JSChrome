@@ -53,16 +53,24 @@
             paintGreetings(saveUsername);
         }
 
-        //Interval은 "매번" 일어나야 하는 일을 뜻한다
+
         const clock = document.querySelector("h2#clock");
 
-        function sayHello() {
-            console.log("Hello");
+        function getClock() {
+            const date = new Date();
+            let time = `0${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+            clock.innerText = time;
+            // console.log(`날짜: ${date.getDate()}`);
+            // console.log(`요일: ${date.getDay()}`);
+            // console.log(`년도: ${date.getFullYear()}`);
+            // console.log(`시간: ${date.getHours()}`);
+            // console.log(`분: ${date.getMinutes()}`);
+            // console.log(`초: ${date.getSeconds()}`);
         }
 
-        //setInterval은 2개의 argument를 갖는데, 첫번째는 내가 호출하고자 하는 함수이고 두번째는 그 함수가 실행되는 시간 단위(ms)이다. 즉 두번째 arugment의 시간마다 한번씩 첫번쨰 argument의 이름을 가진 함수가 호출된다.
-        setInterval(sayHello, 5000);
-
+        //2번째 argument 후 1번째 argument를 호출한다
+        getClock();
+        setInterval(getClock, 1000);
     
     </script>
 </body>
