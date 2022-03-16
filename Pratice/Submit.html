@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="submitForm">
+        <input type="text" id="textBox">
+        <button>button</button>
+    </form>
+
+    <script>
+        
+        function handleSubmit(event) {
+            event.preventDefault();
+            const textBox = document.querySelector("#textBox");
+            console.log(textBox.value);
+        }
+
+        //form태그 안에있는 버튼은 누르면 무조건 서브밋 처리된다.
+        const submitForm = document.querySelector("#submitForm");
+
+        submitForm.addEventListener("submit", handleSubmit);
+
+    </script>
+</body>
+</html>
