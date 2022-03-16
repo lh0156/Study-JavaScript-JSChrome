@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form class="hidden" id="login-form">
+        <input required maxlength="15" type="text" placeholder="What is your name?">
+        <button>Log in</button>
+    </form>
+
+    <h2 id="clock">00:00</h2>
+    <h1 id="greeting" class="hidden"></h1>
+    <div id="quote">
+        <span></span>
+        <span></span>
+    </div>
+
+    <script>
+        const quotes = [
+            {
+                quote: "Each of us must confront our own fears, must come face to face with them. How we handle our fears will determine where we go with the rest of our lives. To experience adventure or to be limited by the fear of it.",
+                author: "Judy Blume",
+            },
+            {
+                quote: "Everything you want is on the other side of fear.",
+                author: "Jack Calfield",
+            },
+            {
+                quote: "Fear has its use, but cowardice has none.",
+                author: "Gandhi",
+            },
+            {
+                quote: "Fear is the path to the dark side. Feal leads to anger. ANger leads to hate. Hate leads to suffering",
+                author: "Yoda",
+            },
+            {
+                quote: "Fears are notthing more than a state of mind.",
+                author: "Napoleon Hill",
+            },
+            {
+                quote: "Feel the fear and do it anyway",
+                author: "Susan Jeffers",
+            },
+            {
+                quote: "He who is not everyday conquering some fear has not learned the secret of life",
+                author: "Ralph Waldo Emerson",
+            },
+            {
+                quote: "I learned that courage was not the absence of fear, but the triumph over it. The brave man is not he who does not feel afraid, but he who conquers that fear.",
+                author: "Nelson Mandela",
+            },
+            {
+                quote: "Never let the fear of striking out keep you from playing the game",
+                author: "Babe Ruth",
+            },
+            {
+                quote: "What would like be if we had no courage to attempt anything?",
+                author: "Vincent van Gogh",
+            }
+        ];
+
+        const quote = document.querySelector("#quote span:first-child");
+        const author = document.querySelector("#quote span:last-child");
+
+        const todaysQuote = quotes[Math.floor(Math.random()*quotes.length)];
+        
+        quote.innerText = todaysQuote.quote;
+        author.innerText = todaysQuote.author;
+        
+    </script>
+</body>
+</html>
