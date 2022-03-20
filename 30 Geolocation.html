@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deleteing To Dos Part One</title>
+    <title>Geolocation</title>
     <style>
         .hidden {
             display: none;
@@ -162,8 +162,9 @@
 
         function deleteToDo(event) {
             const li = event.target.parentElement;
-            console.log(li.id);
             li.remove();
+            toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+            saveTodos();
         }
 
         function paintTodo(newTodo) {
@@ -204,8 +205,27 @@
             toDos = parsedToDos;
             parsedToDos.forEach(paintTodo);
         }
-    
 
+        function sexyFilter(toDo) {
+            return todo.id !== 1647781104833;
+        }
+
+        //--------------
+
+        function onGeoOk(position) {
+            const lat = position.coords.latitude;
+            const lng = position.coords.longitude;
+            console.log(`You live in ${last}, ${lng}`);
+        }
+
+
+        function onGeoError() {
+            console.log("can't find you. No weather for you.")
+        }
+
+        navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
+    
+        
 
 
     </script>
