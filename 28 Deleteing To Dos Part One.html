@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading To Dos part Two</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 id="clock">00:00:00</h2>
+
+    <form class="hidden" id="login-form">
+        <input required maxlength="15" type="text" placeholder="What is your name?">
+        <button>Log in</button>
+    </form>
+
+    <h1 class="hidden" id="greeting"></h1>
+    <form id="todo-form">
+        <input type="text" placeholder="Write a To do And Press Enter" required>
+    </form>
+    <ul id="todo-list"></ul>
+    <div id="quote">
+        <span></span>
+        <span></span>
+    </div>
+
+    <script>
+
+        const loginForm = document.querySelector("#login-form");
+        const loginInput = document.querySelector("#login-form input");
+        const greeting = document.querySelector("#greeting");
+        
+        const HIDDEN_CLASSNAME = "hidden";
+        const USERNAME_KEY = "username";
+
+
+        function onLoginSubmit(event) {
+            event.preventDefault();
+            loginForm.classList.add(HIDDEN_CLASSNAME);
+            const username = loginInput.value;
+            localStorage.setItem(USERNAME_KEY, username);
+            paintGreetings(username);
+        }
+
+        function paintGreetings(username) {
+            greeting.innerText = `Hello ${username}`;
+            greeting.classList.remove(HIDDEN_CLASSNAME);
+        }
+
+        const saveUsername = localStorage.getItem(USERNAME_KEY);
+        console.log(saveUsername);
+
+        if (saveUsername === null) {
+            loginForm.classList.remove(HIDDEN_CLASSNAME);
+            loginForm.addEventListener("submit", onLoginSubmit);
+        } else {
+            paintGreetings(saveUsername);
+        }
+
+
+        const clock = document.querySelector("h2#clock");
+
+
+        function getClock() {
+
+            const date = new Date();
+            
+            const hours = String(date.getHours()).padStart(2, "0");
+            const minutes = String(date.getMinutes()).padStart(2, "0");
+            const seconds = String(date.getSeconds()).padStart(2, "0");
+
+            clock.innerText = `${hours}:${minutes}:${seconds}`
+
+
+        }
+
+        getClock();
+        setInterval(getClock, 1000);
+
+        //---------------------------------------------
+
+        const images = [ "1.jpg", "2.jpg", "3.jpg" ];
+
+        const chosenImage = images[Math.floor(Math.random()*images.length)];
+
+        const bgImage = document.createElement("img");
+        
+        bgImage.src = `img/${chosenImage}`;
+        
+        document.body.appendChild(bgImage);
+
+        const quotes = [
+            {
+                quote: "Each of us must confront our own fears, must come face to face with them. How we handle our fears will determine where we go with the rest of our lives. To experience adventure or to be limited by the fear of it.",
+                author: "Judy Blume",
+            },
+            {
+                quote: "Everything you want is on the other side of fear.",
+                author: "Jack Calfield",
+            },
+            {
+                quote: "Fear has its use, but cowardice has none.",
+                author: "Gandhi",
+            },
+            {
+                quote: "Fear is the path to the dark side. Feal leads to anger. ANger leads to hate. Hate leads to suffering",
+                author: "Yoda",
+            },
+            {
+                quote: "Fears are notthing more than a state of mind.",
+                author: "Napoleon Hill",
+            },
+            {
+                quote: "Feel the fear and do it anyway",
+                author: "Susan Jeffers",
+            },
+            {
+                quote: "He who is not everyday conquering some fear has not learned the secret of life",
+                author: "Ralph Waldo Emerson",
+            },
+            {
+                quote: "I learned that courage was not the absence of fear, but the triumph over it. The brave man is not he who does not feel afraid, but he who conquers that fear.",
+                author: "Nelson Mandela",
+            },
+            {
+                quote: "Never let the fear of striking out keep you from playing the game",
+                author: "Babe Ruth",
+            },
+            {
+                quote: "What would like be if we had no courage to attempt anything?",
+                author: "Vincent van Gogh",
+            }
+        ];
+
+        const quote = document.querySelector("#quote span:first-child");
+        const author = document.querySelector("#quote span:last-child");
+
+        const todaysQuote = quotes[Math.floor(Math.random()*quotes.length)];
+        
+        quote.innerText = todaysQuote.quote;
+        author.innerText = todaysQuote.author;
+
+        
+        const toDoForm = document.getElementById("todo-form");
+        const toDoInput = document.querySelector("#todo-form input");
+        const toDoList = document.getElementById("todo-list");
+
+        const TODOS_KEY = "todos";
+
+        let toDos = [];
+
+        function saveTodos() {
+            localStorage.setItem("todos", JSON.stringify(toDos));
+        }
+
+        function deleteToDo(event) {
+            const li = event.target.parentElement;
+            console.log(li.id);
+            li.remove();
+        }
+
+        function paintTodo(newTodo) {
+            const li = document.createElement("li");
+            li.id = newTodo.id;
+            const span = document.createElement("span");
+            span.innerText = newTodo.text;
+            const button = document.createElement("button");
+            button.innerText = "❌";
+            button.addEventListener("click", deleteToDo);
+            li.appendChild(span);
+            li.appendChild(button);
+            toDoList.appendChild(li);
+        }
+
+        function handleToDoSubmit(event) {
+            event.preventDefault();
+            const newTodo = toDoInput.value;
+            toDoInput.value= "";
+            const newTodoObj = {
+                text:newTodo,
+                id: Date.now(),
+            };
+            toDos.push(newTodoObj);
+            paintTodo(newTodoObj);
+            saveTodos();
+        }
+
+        toDoForm.addEventListener("submit", handleToDoSubmit);
+
+
+
+        const saveToDos = localStorage.getItem(TODOS_KEY);
+
+
+        if(saveToDos !== null) {
+            const parsedToDos = JSON.parse(saveToDos);
+            toDos = parsedToDos;
+            parsedToDos.forEach(paintTodo);
+        }
+    
+
+
+
+    </script>
+</body>
+</html>
