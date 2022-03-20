@@ -4,21 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moment</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Zalesia</title>
+    <style>
+
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .logo {
+            display: block;
+            position: absolute;
+            top: 15%;
+            left: 31%;
+            width: 80%px;
+            height: 80%px;
+        }
+
+        .hidden {
+            
+        }
+
+
+
+
+    </style>
 </head>
 <body>
+    <img src="zalesia.png" class="logo">
 
-    <form id="login-form" class="hidden">
-        <input type="text" id="login-input" required max="15" placeholder="What is your name?">
-        <button>Login</button>
-    </form>
-    <h2 id="clock"></h2>
-    <h1 id="greeting" class="hidden"></h1>
-    
+    <script>
 
+        function logoOut() {
+            const logo = document.querySelector(".logo");
+            logo.className = 'hidden';
+            
+        }
 
-    <script src="js/greeting.js"></script>
-    <script src="js/clock.js"></script>
+        setTimeout(logoOut, 1000);
+    </script>
 </body>
 </html>
